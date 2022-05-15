@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="h-100 h-custom gradient-custom-2">
+    {% for message in messages %}
+    <h5>
+        <div class="alert alert-danger mt-5" style="width: 50%;">
+            {{ message }}
+        </div>
+    </h5>
+    {% endfor %}
+    <form action="{% url 'signupFun' %}" method="post" >
+        {% csrf_token %}
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12">
+                    <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                        <div class="card-body p-0">
+                            <div class="row g-0">
+                                <div class="col-lg-6">
+                                    <div class="p-5">
+
+                                        <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
+
+
+
+                                        <div class="row">
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <div class="form-outline">
+                                                    <input name="first_name" type="text" id="form3Examplev2"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Examplev2">First name</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6 mb-4 pb-2">
+
+                                                <div class="form-outline">
+                                                    <input name="last_name" type="text" id="form3Examplev3"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Examplev3">Last name</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="mb-2 pb-2">
+                                            <div class="form-outline">
+                                              <input name="username" type="text" id="form3Examplev4" class="form-control form-control-lg" />
+                                              <label class="form-label" for="form3Examplev4">Username</label>
+                                            </div>
+                                          </div>
+                                          <br>
+
+                                        <p class="float-left pl-2">Choose Gender:</p>
+                                        <div class="form-check-inline float-left mx-2">
+                                            <label class="form-check-label" for="radio1">
+                                                <input type="radio" class="form-check-input" id="radio1" name="gen"
+                                                    value="Male" checked>Male
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline float-left">
+                                            <label class="form-check-label" for="radio1">
+                                                <input type="radio" class="form-check-input" id="radio1" name="gen"
+                                                    value="Female" checked>Female
+                                            </label>
+                                        </div>
+                                        <div class="form-check-inline float-left">
+                                            <label class="form-check-label" for="radio1">
+                                                <input type="radio" class="form-check-input" id="radio1" name="gen"
+                                                    value="Other" checked>Other
+                                            </label>
+                                        </div>
+
+                                        <br>
+                                        <br>
+
+                                        <div class="mb-4 pb-2">
+                                            <div class="form-outline">
+                                                <input name="email" type="Email" id="form3Examplev4"
+                                                    class="form-control form-control-lg" />
+                                                <label class="form-label mb-3" for="form3Examplev5">Email</label>
+
+                                            </div>
+
+                                            <input name="password" type="password" name="password"
+                                                class="form-control form-control-lg mb-5" placeholder="Strong Password">
+
+                                            <input name="cpassword" type="password" name="cpassword"
+                                                class="form-control form-control-lg mt-4"
+                                                placeholder="Confirm Password">
+                                            <label class="form-label" for="form3Examplev5">Password</label>
+
+                                        </div>
+                                        <br>
+
+
+
+
+                                    </div>
+                                </div>
+
+                                <!-- auth Table ends -->
+
+                                <div class="col-lg-6 bg-indigo text-white">
+                                    <div class="p-5">
+                                        <h3 class="fw-normal mb-5">Contact Details</h3>
+
+
+
+                                        <!-- <div class="mb-4 pb-2">
+                        <div class="form-outline form-white">
+                          <input type="text" id="form3Examplea3" class="form-control form-control-lg" />
+                          <label class="form-label" for="form3Examplea3">Additional Information</label>
+                        </div>
+                      </div> -->
+
+                                        <div class="row">
+                                            <div class="col-md-5 mb-4 pb-2">
+
+                                                <div class="form-outline form-white">
+                                                    <input name="zip" type="text" id="form3Examplea4"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Examplea4">Zip Code</label>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-7 mb-4 pb-2">
+
+                                                <div class="form-outline form-white">
+                                                    <input name="place" type="text" id="form3Examplea5"
+                                                        class="form-control form-control-lg" />
+                                                    <label class="form-label" for="form3Examplea5">Place</label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="row">
+                                            <div class=" mb-4 ">
+                                                <input name="addr" type="text" id="form3Examplea5"
+                                                    class="form-control form-control-lg" />
+                                                <label class="form-label" for="form3Examplea5">Address</label>
+
+
+                                            </div>
+                                            <div class=" mb-4 ">
+                                                <input name="ph" type="tel" name="ph" id="" class="form-control form-control-lg">
+                                                <label class="form-label" for="form3Examplea9">Yor Contact
+                                                    Number</label>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <div class="form-outline form-white">
+                                                <input type="file" name="file" id="" accept="image/*"
+                                                    class="form-control form-control-lg">
+                                                <label class="form-label" for="form3Examplea9">Profile Picture</label>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="form-check d-flex justify-content-start mb-4 pb-3">
+                                            <input class="form-check-input me-3" type="checkbox" value=""
+                                                id="form2Example3c" />
+                                            <label class="form-check-label text-white" for="form2Example3">
+                                                I do accept the <a href="#!" class="text-white"><u>Terms and
+                                                        Conditions</u></a> of your
+                                                site.
+                                            </label>
+                                        </div> -->
+
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-light btn-lg w-50"
+                                            data-mdb-ripple-color="dark">Register</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+{% endblock content %}
