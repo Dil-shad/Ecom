@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container" style="background-color: ghostwhite; border: hidden; border-radius: 2%;">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col mt-5 text-center">
+            {% for pro in pro %}
+            <form action="/ProductModelEdit/{{pro.id}}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <!-- <label class="form-control " for="cars">Choose a category:</label> -->
+                <h3>ADD NEW PPRODUCT</h3>
+
+                <select class="form-control mt-4" name="category" id="cat">
+                    <option selected="selected" disabled>Select category:~</option>
+                    {% for cat in obj %}
+
+
+                    <option value="{{cat.id}}">{{cat}}</option>
+                    {% endfor %}
+                </select>
+
+                <p>category:{{pro.category.category}}</p>
+
+                <input type="text" class="form-control mt-2 " placeholder="Enter product name" name="pname"
+                    value="{{pro.product_name}}">
+                <input type="text" class="form-control mt-2 " placeholder="Title" name="tt"
+                    value="{{pro.product_title}}">
+                <input type="text" class="form-control mt-2 " placeholder="Description" name="des"
+                    value="{{pro.description}}">
+                <input type="text" class="form-control mt-2 " placeholder="Price" name="price" value="{{pro.price}}">
+
+                <input type="text" class="form-control mt-2 " placeholder="quantity" name="qty"
+                    value="{{pro.quantity}}">
+                <input type="file" name="file" class="form-control mt-3 " accept="image/*">
+                {% if pro.image == '/static/image/default.png' %}
+
+                <img src="{% static 'image/default.png' %}" class="w-25">
+
+                {% else %}
+
+                <img src="{{ pro.image.url }}" class="w-25">
+
+                {% endif %}
+                {% endfor %}
+
+                <input class="form-control  mt-5 border-3" type="submit" value="Submit">
+
+
+
+
+
+            </form>
+
+
+
+        </div>
+        <div class="col"></div>
+    </div>
+
+
+</div>
+
+{% endblock content %}

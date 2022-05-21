@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<form action="{% url 'dashboard' %}" method="post">
+    {% csrf_token %}
+    <label for="category">Enter new category:</label>
+    <input name="cat" type="text" id="fname" name="fname"><br><br>
+  
+    <input type="submit" value="Submit">
+  </form>
+  
+{% endblock content %}

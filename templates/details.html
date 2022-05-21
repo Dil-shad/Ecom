@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+{% for x in xx %}
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4 justify-content-center">
+            <img src="{{x.image.url}}" alt="" style="width: 60%;">
+            <p>category: <h5>{{x.category}}</h5></p>
+            <p>ProductCategory: <h5>{{x.ProductCategory}}</h5></p>
+            <p>product_name: <h5>{{x.product_name}}</h5></p>
+            <p>product_title: <h5>{{x.product_title}}</h5></p>
+            <p>description: <strong>{{x.description}}</strong>strong></p>
+            <p>price: <h5>{{x.price}}</h5></p>
+
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</div>
+
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+{% endblock content %}

@@ -1,76 +1,21 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+<section style="height: 100vh;">
 
-<!--  -->
-
-
-<section style="height: 70vh;" class="m-5 p-3 mb-5">
-
-  <div class="container-fluid">
-
-    <div class="row">
-      <div class="col-8 bg-light">
-        <div class="container  vh-80 text-center mb-5 p-5">
-          <h4 class=" m-2">Signed Users</h4>
-          <table class="table table-hover  mt-2 p-1 ">
-            <thead>
-              <tr class=" " style="border-bottom: double;">
-                <th>ID</th>
-                <th>Firstname</th>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Mobile</th>
-                <th>Address</th>
-                <!-- <th>Gender</th> -->
-                <th>Cart</th>
-                <th>ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for i in usr %}
-
-
-              <tr>
-                <td>{{i.user.id}}</td>
-                <td>{{i.user.first_name}}</td>
-                <td>{{i.user.username}}</td>
-                <td>{{i.user.email}}</td>
-                <td>{{i.mobile}}</td>
-                <td>{{i.address}}</td>
-                <!-- <td>{{i.gender}}</td> -->
-                <td><a href="/admin_cart_view/{{i.user.id}}">View</a></td>
-                <td><a href="{% url 'delete_usr' i.id %} " class="text-danger">Delete</a></td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-
-
-
-        </div>
-      </div>
-      <div class="col-4">
-
-      </div>
-
-    </div>
-  </div>
+ 
 
 
 
 </section>
 
 
-<section style="height: 150vh; " class="p-5">
+<section style="height: 100vh; " class="p-5">
 
 
 
 
-  <div class="container-fluid bg-light vh-100 p-1">
+  <div class="container bg-light vh-100 p-1">
     <h2 class="mt-5 text-center">View Products</h2>
 
-    <table class="table table-hover  mt-2 p-3 " style="table-layout: fixed;">
+    <table class="table table-hover  mt-2 p-1 " style="table-layout: fixed;">
       <thead>
         <tr class=" " style="border-bottom: double;">
           <th>category</th>
@@ -99,21 +44,10 @@
           <td>{{j.price }}/-</td>
           <td>{{j.quantity}}</td>
           <td>{{j.status}}</td>
-          
-          {% if j.image == '/static/image/default.png' %}
-          <td>
-            <img src="{% static 'image/default.png' %}" class="w-25">
-          </td>
-          {% else %}
-          <td>
-            <img src="{{ j.image.url }}" class="w-25">
-          </td>
-          {% endif %}
+          <td><img src="{{j.image.url}}" class="w-50" alt="image"></td>
+          <!-- <td>{{i.gender}}</td> -->
 
-          <td><a href="{% url 'delete_product' j.id %} " class="text-danger">Delete</a>
-            <br>
-            <a href="{% url 'ProductModelEdit' j.id %}">Edit</a>
-          </td>
+          <td><a href="{% url 'delete_usr' j.id %} " class="text-danger">Delete</a></td>
         </tr>
         {% endfor %}
       </tbody>
@@ -126,7 +60,7 @@
 
 </section>
 
-<section class="mt-5 p-5">
+<section class="mt-5 p-5" >
   <div class="container" style="background-color: ghostwhite; border: hidden; border-radius: 2%;">
     <div class="row">
       <div class="col"></div>
@@ -171,5 +105,3 @@
 
   </div>
 </section>
-
-{% endblock content %}
